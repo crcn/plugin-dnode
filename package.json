@@ -1,0 +1,15 @@
+{
+  "name": "haba.dnode",
+  "description": "dnode plugin for haba",
+  "version": "0.0.1",
+  "repository": {
+  },
+  "engines": {
+  },
+  "dependencies": {
+    "dnode":"*"
+  },
+  "devDependencies": {
+  },
+  "main":"./lib/index.js"
+}
