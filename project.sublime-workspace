@@ -27,7 +27,15 @@
 			"file": "lib/index.js",
 			"settings":
 			{
-				"buffer_size": 1344,
+				"buffer_size": 1477,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/subl stdin PV8asd.txt",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -250,15 +258,15 @@
 					"file": "lib/index.js",
 					"settings":
 					{
-						"buffer_size": 1344,
+						"buffer_size": 1477,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								968,
-								968
+								1105,
+								1105
 							]
 						],
 						"settings":
@@ -274,6 +282,32 @@
 				},
 				{
 					"buffer": 3,
+					"file": "/tmp/subl stdin PV8asd.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "/tmp/subl stdin M7Y42h.txt",
 					"settings":
 					{
