@@ -32,6 +32,14 @@
 			}
 		},
 		{
+			"file": "/tmp/subl stdin EhBMeZ.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/tmp/subl stdin PV8asd.txt",
 			"settings":
 			{
@@ -44,6 +52,14 @@
 			"settings":
 			{
 				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 982,
 				"line_ending": "Unix"
 			}
 		}
@@ -198,7 +214,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -282,7 +298,7 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/tmp/subl stdin PV8asd.txt",
+					"file": "/tmp/subl stdin EhBMeZ.txt",
 					"settings":
 					{
 						"buffer_size": 0,
@@ -308,6 +324,32 @@
 				},
 				{
 					"buffer": 4,
+					"file": "/tmp/subl stdin PV8asd.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "/tmp/subl stdin M7Y42h.txt",
 					"settings":
 					{
@@ -325,6 +367,32 @@
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 982,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								176,
+								176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
