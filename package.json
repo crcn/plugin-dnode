@@ -5,7 +5,10 @@
   "repository": {},
   "engines": {},
   "dependencies": {
-    "dnode": "*"
+    "dnode": "*",
+    "outcome": "0.0.x",
+    "traverse": "0.6.x",
+    "plugin": "0.2.x"
   },
   "devDependencies": {},
   "main": "./lib/index.js"

@@ -1,9 +1,9 @@
 var plugin = require("plugin"),
 dnode      = require("dnode");
 
-plugin().
+var loader = plugin().
 use(require(__dirname + "/../../").client()).
-require("dnode://user:pass@localhost:5004").
+require("dnode://localhost").
 require({
 	name: "test",
 	plugin: function(loader) {
@@ -13,8 +13,9 @@ require({
 			}
 		}
 	}
-}).
-load(function(err, exports) {
+});
+
+loader.load(function(err, exports) {
 	setInterval(function() {
 		exports.hello.sayHello(function(message) {
 			console.log(message)
