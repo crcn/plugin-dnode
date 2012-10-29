@@ -13,7 +13,9 @@ var plugin = require("plugin"),
 dnode      = require("dnode");
 
 plugin().
-use(require("../../").server()).
+use(require("../../").server({
+	port: 9009
+})).
 require({
 	name: "hello",
 	plugin: function() {
@@ -35,7 +37,7 @@ dnode      = require("dnode");
 
 var loader = plugin().
 use(require(__dirname + "/../../").client()).
-require("dnode://localhost").
+require("dnode://localhost:9009").
 load(function(err, exports) {
 	exports.hello.sayHello(function(err, message) {
 		console.log(message);//hello!
