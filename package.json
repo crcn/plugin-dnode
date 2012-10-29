@@ -1,6 +1,6 @@
 {
-  "name": "haba.dnode",
-  "description": "dnode plugin for haba",
+  "name": "dnode-plugin",
+  "description": "dnode extension for plugin.js",
   "version": "0.1.0",
   "repository": {},
   "engines": {},
