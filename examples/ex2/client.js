@@ -13,12 +13,9 @@ require({
 			}
 		}
 	}
-});
-
-loader.load(function(err, exports) {
-	setInterval(function() {
-		exports.hello.sayHello(function(message) {
-			console.log(message)
-		})
-	}, 1000);
+}).
+load(function(err, exports) {
+	exports.hello.sayHello(function(message) {
+		console.log(message)
+	});
 });

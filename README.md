@@ -9,23 +9,19 @@ remote functions return an error in the first parameter.
 server.js
 
 ```javascript
-var plugin = require("plugin");
+var plugin = require("plugin"),
+dnode      = require("dnode");
 
 plugin().
-use(require("plugin-dnode").server({
-	auth: function(credentials, callback) {
-		if(credentials.user == "user" && credentials.pass == "pass") return callback();
-		return callback(new Error("unauthorized"));
-	}
-})).
+use(require("../../").server()).
 require({
 	name: "hello",
 	plugin: function() {
 		return {
-			say: function(callback) {
-				callback("hello!");
+			sayHello: function(callback) {
+				callback(null, "hello!");
 			}
-		};
+		}
 	}
 }).
 load();
@@ -34,15 +30,54 @@ load();
 client.js
 
 ```javascript
-var plugin = require("plugin");
+var plugin = require("plugin"),
+dnode      = require("dnode");
 
-plugin().
-use(require("plugin-dnode").client()).
-require("dnode://user:pass@localhost:5004").
+var loader = plugin().
+use(require(__dirname + "/../../").client()).
+require("dnode://localhost").
 load(function(err, exports) {
-	exports.hello.say(function(message) {
+	exports.hello.sayHello(function(err, message) {
 		console.log(message);//hello!
-	})
+	});
 });
 ```
 
+
+### Authentication
+
+server.js
+
+```javascript
+
+plugin().
+use(require("../../").server({
+	auth: function(credentials, callback) {
+		if(credentials.user == "user" && credentials.pass == "pass") return callback();
+		callback(new Error("unauthorized"));
+	}
+})).
+require({
+	name: "hello",
+	plugin: function() {
+		return {
+			sayHello: function(callback) {
+				callback(null, "hello!");
+			}
+		}
+	}
+}).
+load();
+```
+
+client.js
+
+```javascript
+var loader = plugin().
+use(require(__dirname + "/../../").client()).
+require("dnode://user:pass@localhost").
+load(function(err, exports) {
+	exports.hello.sayHello(function(err, message) {
+		console.log(message);//hello!
+	});
+});
