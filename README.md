@@ -13,9 +13,7 @@ var plugin = require("plugin"),
 dnode      = require("dnode");
 
 plugin().
-use(require("../../").server({
-	port: 9009
-})).
+use(require("../../").server()).
 require({
 	name: "hello",
 	plugin: function() {
@@ -37,7 +35,7 @@ dnode      = require("dnode");
 
 var loader = plugin().
 use(require(__dirname + "/../../").client()).
-require("dnode://localhost:9009").
+require("dnode://localhost").
 load(function(err, exports) {
 	exports.hello.sayHello(function(err, message) {
 		console.log(message);//hello!
@@ -54,6 +52,7 @@ server.js
 
 plugin().
 use(require("../../").server({
+	port: 9009,
 	auth: function(credentials, callback) {
 		if(credentials.user == "user" && credentials.pass == "pass") return callback();
 		callback(new Error("unauthorized"));
@@ -77,7 +76,7 @@ client.js
 ```javascript
 var loader = plugin().
 use(require(__dirname + "/../../").client()).
-require("dnode://user:pass@localhost").
+require("dnode://user:pass@localhost:9009").
 load(function(err, exports) {
 	exports.hello.sayHello(function(err, message) {
 		console.log(message);//hello!
