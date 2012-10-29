@@ -1,69 +1,48 @@
+### Notes
+
+- ALL dnode functions must follow the `cb(err, result)` pattern. If a host disconnects for whatever reason, all 
+remote functions return an error in the first parameter.
 
 ### Usage
 
-```javascript
-var pluginLoader = require('haba').loader();
 
-pluginLoader.require('haba.dnode').
-require('dnode+https://localhost:9090').
-init();
+server.js
+
+```javascript
+var plugin = require("plugin");
+
+plugin().
+use(require("plugin-dnode").server({
+	auth: function(credentials, callback) {
+		if(credentials.user == "user" && credentials.pass == "pass") return callback();
+		return callback(new Error("unauthorized"));
+	}
+})).
+require({
+	name: "hello",
+	plugin: function() {
+		return {
+			say: function(callback) {
+				callback("hello!");
+			}
+		};
+	}
+}).
+load();
 ```
 
-## DNode Setup
-
-
-### DNode server
-
-server.js:
+client.js
 
 ```javascript
-var dnode = require('dnode');
+var plugin = require("plugin");
 
-require('haba').loader().
-require(__dirname + '/server/plugins').
-init(function() {
-	dnode(haba.plugin('dnode')).listen(5050);
+plugin().
+use(require("plugin-dnode").client()).
+require("dnode://user:pass@localhost:5004").
+load(function(err, exports) {
+	exports.hello.say(function(message) {
+		console.log(message);//hello!
+	})
 });
 ```
 
-server/plugins/hello.server.js:
-
-```javascript
-exports.plugin = function() {
-	return {
-		sayHello: function(callback) {
-			callback('Hello World!');
-		}
-	}
-}
-```
-
-### DNode client
-
-client.js:
-
-```javascript
-require('haba')().
-require('dnode+http://localhost:5050').
-require(__dirname + '/client/plugins').
-init();
-```
-
-
-client/plugins/hello.client.js:
-
-```javascript
-exports.require = 'hello.server';
-
-exports.plugin = function() {
-	var haba = this;
-	
-	return {
-		init: function() {
-			haba.plugin(exports.require).sayHello(message) {
-				console.log(message);//Hello World!
-			}
-		}
-	}
-}
-```

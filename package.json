@@ -1,7 +1,7 @@
 {
   "name": "haba.dnode",
   "description": "dnode plugin for haba",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {},
   "engines": {},
   "dependencies": {
