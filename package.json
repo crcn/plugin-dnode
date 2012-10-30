@@ -8,7 +8,8 @@
     "dnode": "*",
     "outcome": "0.0.x",
     "traverse": "0.6.x",
-    "plugin": "0.2.x"
+    "plugin": "0.2.x",
+    "shoe": "0.0.x"
   },
   "devDependencies": {},
   "main": "./lib/index.js"
